@@ -20,13 +20,29 @@ const filledState = {
 };
 
 describe('reducer', () => {
-  it('should add a contact to the list', () => {
+  it('should add a contact to an empty list', () => {
     const stateBefore = initialState;
     const stateAfter = {
       contacts: [ contact1 ]
     };
 
     const newAction = actions.addContact(contact1);
+
+    deepFreeze(stateBefore);
+    expect(
+      reducer(stateBefore, newAction)
+    ).toEqual(stateAfter);
+  });
+
+  it('should add a contact to a list with other elements', () => {
+    const stateBefore = {
+      contacts: [ contact1, contact2 ]
+    }
+    const stateAfter = {
+      contacts: [ contact1, contact2, contact3 ]
+    };
+
+    const newAction = actions.addContact(contact3);
 
     deepFreeze(stateBefore);
     expect(
