@@ -4,7 +4,7 @@ var webpack = require('webpack');*/
 module.exports = {
   context: __dirname,
   /*devtool: debug ? "inline-sourcemap" : null,*/
-  entry: ['./build/js', './build/js/components', './build/js/redux'],
+  entry: './build/js',
   output: {
     path: __dirname + '/public/js/',
     filename: 'bundle.js'
