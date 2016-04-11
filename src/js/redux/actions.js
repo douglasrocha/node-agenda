@@ -3,21 +3,21 @@
 const constants = require('./constants.js');
 
 const actions = {
-  addContact: (contact) => {
+  addContact: contact => {
     return {
       type: constants.addContact,
       contact
     };
   },
 
-  editContact: (contact) => {
+  editContact: contact => {
     return {
       type: constants.editContact,
       contact
     };
   },
 
-  removeContact: (id) => {
+  removeContact: id => {
     return {
       type: constants.removeContact,
       id
