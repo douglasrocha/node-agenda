@@ -5,7 +5,7 @@ const constants = require('../../../build/js/redux/constants.js');
 const actions = require('../../../build/js/redux/actions.js');
 
 describe('actions', () => {
-  it('should create an action to add a todo', () => {
+  it('should create an action to add a contact', () => {
     const contact = { name: "John", phone: "555-5555" };
     const expectedAction = {
       type: constants.addContact,
@@ -15,7 +15,7 @@ describe('actions', () => {
     expect(actions.addContact(contact)).toEqual(expectedAction);
   });
 
-  it('should create an action to edit a todo', () => {
+  it('should create an action to edit a contact', () => {
     const id = 1;
     const contact = { id, name: "John", phone: "555-5555"};
     const expectedAction = {
@@ -26,7 +26,7 @@ describe('actions', () => {
     expect(actions.editContact(contact)).toEqual(expectedAction);
   });
 
-  it('should create an action to remove a todo', () => {
+  it('should create an action to remove a contact', () => {
     const id = 3;
     const expectedAction = {
       type: constants.removeContact,
