@@ -1,18 +1,36 @@
 'use strict';
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 var constants = require('./constants.js');
 var actions = require('./actions.js');
 
 var reducer = function reducer(state, action) {
   switch (action.type) {
     case constants.addContact:
-      return state;
+      return Object.assign({}, state, {
+        contacts: [].concat(_toConsumableArray(state.contacts), [{
+          id: state.contacts.length + 1,
+          name: action.contact.name,
+          phone: action.contact.phone
+        }])
+      });
 
     case constants.editContact:
-      return state;
+      return Object.assign({}, state, {
+        contacts: [].concat(_toConsumableArray(state.contacts.slice(0, index)), [{
+          id: action.contact.id,
+          name: action.contact.name,
+          phone: action.contact.phone
+        }], _toConsumableArray(state.contacts.slice(index + 1)))
+      });
 
     case constants.removeContact:
-      return state;
+      return Object.assign({}, state, {
+        contacts: state.contacts.filter(function (contact) {
+          return contact.id !== action.id;
+        })
+      });
 
     default:
       return state;
