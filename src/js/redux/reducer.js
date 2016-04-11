@@ -6,16 +6,16 @@ const actions = require('./actions.js');
 const reducer = (state, action) => {
   switch(action.type) {
     case constants.addContact:
-    return Object.assign({}, state, {
-      contacts: [
-        ...state.contacts,
-        {
-          id: state.contacts.length,
-          name: action.contact.name,
-          phone: action.contact.phone
-        }
-      ]
-    });
+      return Object.assign({}, state, {
+        contacts: [
+          ...state.contacts,
+          {
+            id: state.contacts.length,
+            name: action.contact.name,
+            phone: action.contact.phone
+          }
+        ]
+      });
 
     case constants.editContact:
       return Object.assign({}, state, {
