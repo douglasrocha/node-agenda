@@ -10,7 +10,7 @@ const reducer = (state, action) => {
       contacts: [
         ...state.contacts,
         {
-          id: state.contacts.length + 1,
+          id: state.contacts.length,
           name: action.contact.name,
           phone: action.contact.phone
         }
@@ -20,13 +20,13 @@ const reducer = (state, action) => {
     case constants.editContact:
       return Object.assign({}, state, {
         contacts: [
-          ...state.contacts.slice(0, index),
+          ...state.contacts.slice(0, action.contact.id),
           {
             id: action.contact.id,
             name: action.contact.name,
             phone: action.contact.phone
           },
-          ...state.contacts.slice(index + 1)
+          ...state.contacts.slice(action.contact.id + 1)
         ]
       });
 

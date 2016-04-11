@@ -10,7 +10,7 @@ var reducer = function reducer(state, action) {
     case constants.addContact:
       return Object.assign({}, state, {
         contacts: [].concat(_toConsumableArray(state.contacts), [{
-          id: state.contacts.length + 1,
+          id: state.contacts.length,
           name: action.contact.name,
           phone: action.contact.phone
         }])
@@ -18,11 +18,11 @@ var reducer = function reducer(state, action) {
 
     case constants.editContact:
       return Object.assign({}, state, {
-        contacts: [].concat(_toConsumableArray(state.contacts.slice(0, index)), [{
+        contacts: [].concat(_toConsumableArray(state.contacts.slice(0, action.contact.id)), [{
           id: action.contact.id,
           name: action.contact.name,
           phone: action.contact.phone
-        }], _toConsumableArray(state.contacts.slice(index + 1)))
+        }], _toConsumableArray(state.contacts.slice(action.contact.id + 1)))
       });
 
     case constants.removeContact:
