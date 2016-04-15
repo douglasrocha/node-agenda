@@ -1,5 +1,7 @@
-# node-agenda
-An extremely simple agenda just for playing with node packages. This is a personal project that has as main focus, applying most of the trending Node.js libraries.
+# node-agenda (still not finished)
+An over-engineered, yet extremely simple agenda just for playing with node packages. This is a personal project that has as main focus, applying most of the trending Node.js libraries.
+
+![alt tag](http://i.imgur.com/Ztx5iYG.png)
 
 ## Technologies
 
